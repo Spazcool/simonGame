@@ -1,0 +1,1627 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Hexy Simon</title>
+	<link type="image/x-icon" rel="shortcut icon" href="/favicons/favicon.ico" />
+	<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif|Black+Ops+One|Bungee|Six+Caps|Geo|Orbitron|Press+Start+2P|Revalia|Merriweather+Sans|Orbitron|Yanone+Kaffeesatz" />
+	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+	<link type="text/css" rel="stylesheet" href="simon.css" />
+
+	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="simon.js"></script>
+</head>
+
+<body>
+	<div id="container">
+		<div id="tester"></div>
+
+		<ul id="hexagonContainer">
+
+			<!-- First row. 11-->
+			<li class="hex-row" id="R1">
+
+				<div class="hexagon" id="test1">
+					<div class="hex-inner" id="test2">
+						<div style="padding-left: -0.5vw;" class="hex-img" id="H1">
+
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H2">
+
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H3">
+
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H4">
+
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H5">
+
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H6">
+
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H7">
+
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H8">
+
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H9">
+
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H10">
+
+						</div>
+					</div>
+				</div>
+
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H11">
+
+						</div>
+					</div>
+				</div>
+
+			</li>
+			<!-- Second row. 10-->
+			<li class="hex-row" id="R2">
+
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H12">
+
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H13">
+
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H14">
+
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H15">
+
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H16">
+
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H17">
+
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H18">
+
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H19">
+
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H20">
+
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H21">
+
+						</div>
+					</div>
+				</div>
+
+			</li>
+			<!-- Third row. 11-->
+			<li class="hex-row" id="R3">
+
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H22">
+
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H23">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H24">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H25">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H26">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H27">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H28">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H29">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H30">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H31">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H32">
+						</div>
+					</div>
+				</div>
+
+			</li>
+			<!-- Fourth row. 10-->
+			<li class="hex-row" id="R4">
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H33">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H34">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H35">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H36">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H37">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H38">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H39">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H40">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H41">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H42">
+						</div>
+					</div>
+				</div>
+
+			</li>
+			<!-- Fifth row. 11-->
+			<li class="hex-row" id="R5">
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H43">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H44">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H45">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H46">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H47">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H48">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H49">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H50">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H51">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H52">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H53">
+						</div>
+					</div>
+				</div>
+
+			</li>
+			<!-- Sixth row. 10-->
+			<li class="hex-row" id="R6">
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H54">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H55">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H56">
+							<div id="home">
+								<center>HOME</center>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H57">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H58">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H59">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H60">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H61">
+							<div id="menu">
+								<center>MENU</center>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H62">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H63">
+						</div>
+					</div>
+				</div>
+
+			</li>
+			<!-- Seventh row. 11-->
+			<li class="hex-row" id="R7">
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H64">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H65">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H66">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H67">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H68">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H69">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H70">
+						</div>
+					</div>
+				</div>
+
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H71">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H72">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H73">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H74">
+						</div>
+					</div>
+				</div>
+
+			</li>
+			<!-- Eigth row. 10-->
+			<li class="hex-row" id="R8">
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H75">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H76">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H77">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H78">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H79">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H80">
+						</div>
+					</div>
+				</div>
+
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H81">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H82">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H83">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H84">
+						</div>
+					</div>
+				</div>
+
+			</li>
+			<!-- Ninth row. 11-->
+			<li class="hex-row" id="R9">
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H85">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H86">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H87">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H88">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H89">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H90">
+						</div>
+					</div>
+				</div>
+
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H91">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H92">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H93">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H94">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H95">
+						</div>
+					</div>
+				</div>
+
+			</li>
+			<!-- Tenth row. 10-->
+			<li class="hex-row" id="R10">
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H96">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H97">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H98">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H99">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H100">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H101">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H102">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H103">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H104">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H105">
+						</div>
+					</div>
+				</div>
+
+			</li>
+			<!-- Eleventh row. 11-->
+			<li class="hex-row" id="R11">
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H106">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H107">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H108">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H109">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H110">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H111">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H112">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H113">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H114">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H115">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H116">
+						</div>
+					</div>
+				</div>
+
+			</li>
+			<!-- Twelfth row. 10-->
+			<li class="hex-row" id="R12">
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H117">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H118">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H119">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H120">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H121">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H122">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H123">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H124">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H125">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H126">
+						</div>
+					</div>
+				</div>
+
+			</li>
+			<!-- Thirteenth row. 11-->
+			<li class="hex-row" id="R13">
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H127">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H128">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H129">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H130">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H131">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H132">
+							<div id="counter">
+								<center>00</center>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H133">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H134">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H135">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H136">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H137">
+						</div>
+					</div>
+				</div>
+
+			</li>
+			<!-- Fourteenth row. 10-->
+			<li class="hex-row" id="R14">
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H138">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H139">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H140">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H141">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H142">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H143">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H144">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H145">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H146">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H147">
+						</div>
+					</div>
+				</div>
+
+			</li>
+			<!-- Fifteenth row. 11-->
+			<li class="hex-row" id="R15">
+
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H148">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H149">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H150">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H151">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H152">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H153">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H154">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H155">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H156">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H157">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H158">
+						</div>
+					</div>
+				</div>
+
+			</li>
+			<!-- Sixteenth row. 10-->
+			<li class="hex-row" id="R16">
+
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H159">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H160">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H161">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H162">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H163">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H164">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H165">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H166">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H167">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H168">
+						</div>
+					</div>
+				</div>
+
+			</li>
+			<!-- Seventeenth row. 11-->
+			<li class="hex-row" id="R17">
+
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H169">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H170">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H171">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H172">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H173">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H174">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H175">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H176">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H177">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H178">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H179">
+						</div>
+					</div>
+				</div>
+
+			</li>
+			<!-- Eighteenth row. 10-->
+			<li class="hex-row" id="R18">
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H180">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H181">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H182">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H183">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H184">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H185">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H186">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H187">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H188">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H189">
+						</div>
+					</div>
+				</div>
+
+			</li>
+			<!-- Nineteenth row. 11-->
+			<li class="hex-row" id="R19">
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H190">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H191">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H192">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H193">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H194">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H195">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H196">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H197">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H198">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H199">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H200">
+						</div>
+					</div>
+				</div>
+
+			</li>
+
+			<!-- Twentieth row. 10-->
+			<li class="hex-row" id="R20">
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H201">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H202">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H203">
+							<div id="mode">
+								<center>MODE</center>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H204">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H205">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H206">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H207">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H208">
+							<div id="start">
+								<center>START</center>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H209">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H210">
+						</div>
+					</div>
+				</div>
+
+			</li>
+			<!-- Twenty First row. 11-->
+			<li class="hex-row" id="R21">
+
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H211">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H212">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H213">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H214">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H215">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H216">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H217">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H218">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H219">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H220">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H221">
+						</div>
+					</div>
+				</div>
+
+			</li>
+			<!-- Twentieth Second. 10-->
+			<li class="hex-row" id="R22">
+
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H222">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H223">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H224">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H225">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H226">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H227">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H228">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H229">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H230">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H231">
+						</div>
+					</div>
+				</div>
+
+			</li>
+			<!-- Twentieth Third. 11-->
+			<li class="hex-row" id="R23">
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H232">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H233">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H234">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H235">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H236">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H237">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H238">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H239">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H240">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H241">
+						</div>
+					</div>
+				</div>
+				<div class="hexagon">
+					<div class="hex-inner">
+						<div class="hex-img" id="H242">
+						</div>
+					</div>
+				</div>
+
+			</li>
+
+
+		</ul>
+
+	</div>
+
+</body>
+
+</html>
