@@ -3,9 +3,7 @@ html, body {
     margin: 0;
     padding: 0;
     background-color: black;
-    /*  	background-color: #011050; */
     color: black;
-    /*  	overflow: hidden; */
 }
 
 #tester {
@@ -15,32 +13,17 @@ html, body {
     color: white;
 }
 
-
-/*li.hex-row {}*/
-
 li.hex-row:nth-child(2n) .hexagon {
     transform: translateX(50%) rotate(120deg);
 }
-
-
-/*#container {*/
-
-
-/* 	 border: 40px dotted black; */
-
-
-/*}*/
-
-
-/*ul#hexagonContainer {*/
 
 #hexagonContainer {
     margin: 0;
     padding: 0;
     list-style: none;
     overflow: hidden;
-    /*  	border: 4px dotted white; */
     height: 100vh;
+    /*  	border: 4px dotted white; */
     /*  	transform: translateY(-30px); */
     /*  	transform: translateX(-35px); */
 }
@@ -54,10 +37,10 @@ li.hex-row:nth-child(2n) .hexagon {
     overflow: hidden;
     visibility: hidden;
     margin-bottom: -1.75vw;
-    /*  	margin-right: -3px; */
-    margin-right: -0.5vw;
-    /* 	 margin-left: -0.5vw; */
     position: relative;
+    margin-right: -0.5vw;
+    /*  	margin-right: -3px; */
+    /* 	 margin-left: -0.5vw; */
 }
 
 li.hex-row {
@@ -68,11 +51,11 @@ li.hex-row {
 .hexagon .hex-inner {
     width: 100%;
     height: 100%;
-    background: rebeccapurple;
-    /* background-color: black; */
+    /*background: rebeccapurple;*/
     transform: rotate(-60deg);
     overflow: hidden;
     position: relative;
+    /* background-color: black; */
 }
 
 .hexagon .hex-img {
@@ -140,6 +123,13 @@ li.hex-row {
 }
 
 #home, #menu, #counter, #mode, #start {
+    background-color: white;
+    /*font-size: 1vw;
+    padding-top: 1.1vw;*/
+}
+
+.textButs {
+    text-align: center;
     font-size: 1vw;
     padding-top: 1.1vw;
 }
