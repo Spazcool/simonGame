@@ -2,7 +2,7 @@
 //MENU SLIDE FROM THE RIGHT WITH INSTRUCTION
 //ADD OPENING ANIMATIONS
 //THE MENU BUTTONS SEEEM A BIT WEAK TO ME
-//BORDER?
+//ADD A BORDER?
 
 $(document).ready(function() {
     $(".hex-img").hide();
