@@ -72,7 +72,7 @@ $(document).ready(function() {
     }
 
     //CYCLE THROUGH THE CHANNELS ARRAYS AND PLAY, COMPLICATED BECAUSE HTML DOESNT LIKE TO PLAY MORE THAN ONE AT A TIME
-    //BUG STILL WONT PLAY LAST ELE OF THE ARRAY OF AUDIO
+    //BUG STILL SKIPS ON OCCASION...
     function purr(sound) {
         console.log(dog, sound);
         if (dog < 4) {
@@ -80,6 +80,7 @@ $(document).ready(function() {
             dog += 1;
         } else {
             dog = 0;
+            sound[dog].play();
         }
     }
 
@@ -268,6 +269,7 @@ $(document).ready(function() {
         } else if (catsup === "H61") {
             console.log("menu");
             purr(extraSound);
+            buttonFlourish();
         } else if (catsup === "H203") {
             if (roundCounter === 1) {
                 if (gameMode === "STRICT") {
@@ -295,64 +297,97 @@ $(document).ready(function() {
     });
 
     //OPENING ANIMATION
-    //TODO SWITCH GREEN AND YELLOW FINISH
+    //TODO SOME WEIRDNESS WITH ANIMATION, TOP AND RIGHT FINISH WELL BEFORE BOTTOM AND LEFT, LOOK AT STR LENGTH IN CONSOLE
     function buttonFlourish() {
         // ["red","green","blue","yellow"],
-        for (var e = 0; e < gameUI.top.length; e++) {
-            for (var t = 3; t > -1; t--) {
-                $("#H" + gameUI.top[e]).animate({
-                        backgroundColor: buttonColor[t]
-                    },
-                    500
-                );
-            }
-            for (var t = 2; t > -2; t--) {
-                if (t > -1) {
+
+        for (var i = 0; i < buttonColor.length; i++) {
+            var str = [i];
+            for (var j = 1; j < 4; j++) {
+                str.push((i + j) % buttonColor.length); // you could push to an array as well
+                console.log(str);
+                for (var e = 0; e < gameUI.top.length; e++) {
+                    $("#H" + gameUI.top[e]).animate({
+                            backgroundColor: buttonColor[str[1]]
+                        },
+                        500
+                    );
                     $("#H" + gameUI.right[e]).animate({
-                            backgroundColor: buttonColor[t]
+                            backgroundColor: buttonColor[str[2]]
                         },
                         500
                     );
-                } else {
-                    $("#H" + gameUI.right[e]).animate({
-                            backgroundColor: buttonColor[1]
-                        },
-                        500
-                    );
-                }
-            }
-            for (var t = 1; t > -3; t--) {
-                if (t < 0) {
                     $("#H" + gameUI.bottom[e]).animate({
-                            backgroundColor: buttonColor[t + 4]
+                            backgroundColor: buttonColor[str[3]]
                         },
                         500
                     );
-                } else {
-                    $("#H" + gameUI.bottom[e]).animate({
-                            backgroundColor: buttonColor[t]
-                        },
-                        500
-                    );
-                }
-            }
-            for (var t = 0; t > -4; t--) {
-                if (t < 0) {
-                    console.log("t", t);
                     $("#H" + gameUI.left[e]).animate({
-                            backgroundColor: buttonColor[t + 6]
-                        },
-                        500
-                    );
-                } else {
-                    $("#H" + gameUI.left[e]).animate({
-                            backgroundColor: buttonColor[3]
+                            backgroundColor: buttonColor[str[0]]
                         },
                         500
                     );
                 }
             }
         }
+        //OLD CODE
+        // for (var e = 0; e < gameUI.top.length; e++) {
+        // for (var t = 3; t > -1; t--) {
+        //     $("#H" + gameUI.top[e]).animate({
+        //             backgroundColor: buttonColor[t]
+        //         },
+        //         500
+        //     );
+        // }
+        // for (var s = 2; s > -2; s--) {
+        //     if (s > -1) {
+        //         console.log("first: ", s);
+        //         $("#H" + gameUI.right[e]).animate({
+        //                 backgroundColor: buttonColor[s]
+        //             },
+        //             500
+        //         );
+        //     } else {
+        //         console.log("second: ", s);
+        //         $("#H" + gameUI.right[e]).animate({
+        //                 backgroundColor: buttonColor[1]
+        //             },
+        //             500
+        //         );
+        //     }
+        // }
+        // for (var r = 1; r > -3; r--) {
+        //     if (r < 0) {
+        //         $("#H" + gameUI.bottom[e]).animate({
+        //                 backgroundColor: buttonColor[r + 4]
+        //             },
+        //             500
+        //         );
+        //     } else {
+        //         $("#H" + gameUI.bottom[e]).animate({
+        //                 backgroundColor: buttonColor[t]
+        //             },
+        //             500
+        //         );
+        //     }
+        // }
+        // for (var q = 0; q > -4; q--) {
+        //     if (q < 0) {
+        //         // console.log("t", q);
+        //         $("#H" + gameUI.left[e]).animate({
+        //                 backgroundColor: buttonColor[q + 6]
+        //             },
+        //             500
+        //         );
+        //     } else {
+        //         $("#H" + gameUI.left[e]).animate({
+        //                 backgroundColor: buttonColor[3]
+        //             },
+        //             500
+        //         );
+        //     }
+        // }
+        // }
     }
 
     function startcountdown(cat) {
