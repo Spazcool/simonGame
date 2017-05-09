@@ -6,11 +6,21 @@ html, body {
     color: black;
 }
 
+#header {
+    background-color: yellow;
+    height: 20px;
+    position: absolute;
+    top: 0;
+}
+
 #tester {
-    position: fixed;
+    position: absolute;
+    width: 5%;
+    height: 50%;
     float: left;
     z-index: 2;
     color: white;
+    background-color: blue;
 }
 
 li.hex-row:nth-child(2n) .hexagon {
@@ -22,8 +32,8 @@ li.hex-row:nth-child(2n) .hexagon {
     padding: 0;
     list-style: none;
     overflow: hidden;
-    height: 100vh;
-    /*  	border: 4px dotted white; */
+    /*height: 100vh;*/
+    border: 4px dotted white;
     /*  	transform: translateY(-30px); */
     /*  	transform: translateX(-35px); */
 }
@@ -132,4 +142,9 @@ li.hex-row {
     text-align: center;
     font-size: 1vw;
     padding-top: 1.1vw;
+}
+
+.menuBut:hover {
+    box-shadow: 1px 1px 20px white;
+    filter: brightness(200%);
 }
