@@ -3,7 +3,7 @@
 //THE MENU BUTTONS SEEEM A BIT WEAK TO ME
 //ADD A BORDER?
 //NEED A BUTTON / POP UP FOR REPLAY
-
+// a running function for the header height, checks on resize of the screen?
 $(document).ready(function() {
     $(".hex-img").hide();
     var aCounter = 0,
@@ -53,7 +53,10 @@ $(document).ready(function() {
             new Audio("http://www.gravomaster.com/alarm/sounds/chime-low.mp3")
         ],
         dog = 0,
-        time = 1000;
+        time = 1000,
+        hexContainer = $("#hexagonContainer").css("height");
+
+    $("#header").height(hexContainer);
 
     //FILLS THE AUDIO ARRAYS WITH 5 "CHANNELS" TO PLAY FROM, BUT DOESNT WORK...
     function fillArray(arr) {
@@ -175,8 +178,8 @@ $(document).ready(function() {
                         roundCounter = 1;
                         $("#H132").css({
                             'text-align': 'center',
-                            'font-size': '1vw',
-                            'padding-top': '1.1vw'
+                            'font-size': '2vw',
+                            'padding-top': '0.4vw'
                         });
                         $("#H132").html("0" + roundCounter);
                     } else {
@@ -194,8 +197,8 @@ $(document).ready(function() {
                 roundCounter += 1;
                 $("#H132").css({
                     'text-align': 'center',
-                    'font-size': '1vw',
-                    'padding-top': '1.1vw'
+                    'font-size': '2vw',
+                    'padding-top': '0.4vw'
                 });
                 $("#H132").html("0" + roundCounter);
                 runningTallyUSER = [];
@@ -238,8 +241,8 @@ $(document).ready(function() {
             if (roundCounter === 1) {
                 $("#H132").css({
                     'text-align': 'center',
-                    'font-size': '1vw',
-                    'padding-top': '1.1vw'
+                    'font-size': '2vw',
+                    'padding-top': '0.4vw'
                 });
                 $("#H132").html("0" + roundCounter);
                 runningTallyAI = [];
@@ -325,7 +328,7 @@ $(document).ready(function() {
     }
 
     function openingShow(him) {
-        console.log("him: ", him, " || bob: ", bob, " || col: ", col);
+        // console.log("him: ", him, " || bob: ", bob, " || col: ", col);
         //STOP OPERATING AFTER GOING THROUGH ALL HEXES
         if (him < 1) {
             clearInterval(objInterval);
