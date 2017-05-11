@@ -6,46 +6,79 @@ html, body {
     color: black;
 }
 
-#header {
-    background-color: yellow;
-    width: 10%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 3;
+a:link, a:visited {
+    text-decoration: none;
+    color: inherit;
 }
 
 #tester {
-    /*position: absolute;*/
+    position: absolute;
     width: 100%;
-    height: 10%;
-    /*height: 100%;*/
-    float: left;
-    z-index: 4;
+    height: 5%;
+    top: 50%;
     color: white;
     background-color: blue;
 }
 
 #moder {
-    /*position: absolute;*/
+    position: absolute;
     width: 100%;
-    height: 10%;
-    /*height: 100%;*/
-    float: left;
-    z-index: 4;
-    color: white;
-    background-color: red;
+    height: 5%;
+    top: 60%;
+    background-color: cyan;
 }
 
-#menuer {
-    /*position: absolute;*/
-    height: 10%;
-    width: 100%;
-    /*height: 100%;*/
-    float: left;
-    z-index: -2;
-    color: white;
+#leftPanel {
+    background-color: yellow;
+    width: 5vw;
+    position: absolute;
+    left: 0;
+    z-index: 2;
+}
+
+#rightPanel {
+    background-color: pink;
+    width: 5vw;
+    position: absolute;
+    right: 0;
+    z-index: 2;
+    margin-right: -0.4em;
+}
+
+#bottomPanel {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 2vw;
+    background-color: red;
+    margin-bottom: -0.39em;
+}
+
+#topPanel {
+    position: absolute;
+    height: 2vw;
+    width: 100vw;
+    top: 0;
     background-color: green;
+}
+
+#title {
+    font-size: 1.7vw;
+    margin-top: -0.1em;
+}
+
+.banner {
+    background-color: grey;
+    width: 20vw;
+    position: absolute;
+    right: left;
+    z-index: 1;
+}
+
+#instructions {
+    margin-top: 3vw;
+    padding-left: 6vw;
+    padding-right: 1vw;
 }
 
 li.hex-row:nth-child(2n) .hexagon {
@@ -59,7 +92,7 @@ li.hex-row:nth-child(2n) .hexagon {
     list-style: none;
     overflow: hidden;
     /*height: 100vh;*/
-    border: 10px solid red;
+    /*border: 10px solid red;*/
     /*border: 4px dotted white;*/
     /*  	transform: translateY(-30px); */
     /*  	transform: translateX(-35px); */

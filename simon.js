@@ -1,7 +1,7 @@
 //TODO
 //MENU SLIDE FROM THE RIGHT WITH INSTRUCTION
 //THE MENU BUTTONS SEEEM A BIT WEAK TO ME
-//ADD A BORDER?
+
 //NEED A BUTTON / POP UP FOR REPLAY
 // a running function for the header height, checks on resize of the screen?
 $(document).ready(function() {
@@ -56,7 +56,12 @@ $(document).ready(function() {
         time = 1000,
         hexContainer = $("#hexagonContainer").css("height");
 
-    $("#header").height(hexContainer);
+    $("#leftPanel").height(hexContainer);
+    $("#rightPanel").height(hexContainer);
+    $(".banner").height(hexContainer);
+    $(".banner").hide();
+
+
 
     //FILLS THE AUDIO ARRAYS WITH 5 "CHANNELS" TO PLAY FROM, BUT DOESNT WORK...
     function fillArray(arr) {
@@ -258,6 +263,9 @@ $(document).ready(function() {
             console.log("menu");
             purr(extraSound);
             buttonFlourish();
+            $(".banner").toggle("slide", {
+                direction: 'left'
+            });
             //MODE
         } else if (catsup === "H203") {
             if (roundCounter === 1) {
@@ -272,7 +280,13 @@ $(document).ready(function() {
                 'font-size': '1vw',
                 'padding-top': '1.1vw'
             });
+            $("#moder").css({
+                'text-align': 'center',
+                'font-size': '1vw',
+                'padding-top': '1.1vw'
+            });
             $("#H203").html(gameMode);
+            $("#moder").html(gameMode);
             console.log(gameMode);
         } else if (catsup === "H132") {
             purr(extraSound);
