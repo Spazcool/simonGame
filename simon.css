@@ -11,6 +11,11 @@ a:link, a:visited {
     color: inherit;
 }
 
+#container {
+    height: 100vh;
+    /*border: 1px solid white;*/
+}
+
 #tester {
     position: absolute;
     width: 100%;
@@ -42,7 +47,7 @@ a:link, a:visited {
     position: absolute;
     right: 0;
     z-index: 2;
-    margin-right: -0.4em;
+    /*margin-right: -0.4em;*/
 }
 
 #bottomPanel {
@@ -81,6 +86,20 @@ a:link, a:visited {
     padding-right: 1vw;
 }
 
+.notice {
+    position: absolute;
+    top: 20vw;
+    left: 35vw;
+    z-index: 3;
+    height: 15vw;
+    width: 30vw;
+    background-color: green;
+}
+
+#marketing {
+    margin-top: 3vw;
+}
+
 li.hex-row:nth-child(2n) .hexagon {
     transform: translateX(50%) rotate(120deg);
 }
@@ -91,6 +110,7 @@ li.hex-row:nth-child(2n) .hexagon {
     padding: 0;
     list-style: none;
     overflow: hidden;
+    height: inherit;
     /*height: 100vh;*/
     /*border: 10px solid red;*/
     /*border: 4px dotted white;*/

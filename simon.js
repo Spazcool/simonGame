@@ -1,5 +1,4 @@
 //TODO
-//MENU SLIDE FROM THE RIGHT WITH INSTRUCTION
 //THE MENU BUTTONS SEEEM A BIT WEAK TO ME
 
 //NEED A BUTTON / POP UP FOR REPLAY
@@ -60,8 +59,8 @@ $(document).ready(function() {
     $("#rightPanel").height(hexContainer);
     $(".banner").height(hexContainer);
     $(".banner").hide();
-
-
+    $(".notice").hide();
+    $("#marketing").hide();
 
     //FILLS THE AUDIO ARRAYS WITH 5 "CHANNELS" TO PLAY FROM, BUT DOESNT WORK...
     function fillArray(arr) {
@@ -114,7 +113,7 @@ $(document).ready(function() {
         console.log("length", kitten.length);
         for (var b = 0; b < kitten.length; b++) {
             $("#H" + kitten[b]).animate({
-                    backgroundColor: "white"
+                    backgroundColor: "black"
                 },
                 500
             );
@@ -187,7 +186,10 @@ $(document).ready(function() {
                             'padding-top': '0.4vw'
                         });
                         $("#H132").html("0" + roundCounter);
+                        $("#winOrLose").html("lost");
+                        $(".notice").fadeIn(500);
                     } else {
+                        //TODO MIGHT NEED TO TWEAK THIS, CAN NEVER LOSE
                         console.log("thats alright buddy, keep playing");
                         buttonTiming(runningTallyAI, 1);
                     }
@@ -198,6 +200,8 @@ $(document).ready(function() {
                 runningTallyAI = [];
                 runningTallyUSER = [];
                 roundCounter = 1;
+                $("#winOrLose").html("won");
+                $(".notice").fadeIn(500);
             } else if (runningTallyAI.length >= 1) {
                 roundCounter += 1;
                 $("#H132").css({
@@ -243,6 +247,12 @@ $(document).ready(function() {
             tallyCheck(runningTallyUSER, runningTallyAI);
             //START BUTTON
         } else if (catsup === "H208") {
+            $(".notice").hide();
+
+            $("#playAgainButtons").show();
+            $("#gameOver").show();
+            $("#marketing").hide();
+
             if (roundCounter === 1) {
                 $("#H132").css({
                     'text-align': 'center',
@@ -294,6 +304,21 @@ $(document).ready(function() {
             var cutID = catsup.substring(1, 4);
             console.log(cutID);
             glow(cutID, "#200000");
+        }
+    });
+
+    //GAME OVER BUTTONS
+    $(".again").click(function() {
+        if ((this.id) === "yes") {
+            console.log("you done hit things");
+            $(".notice").hide();
+            $("#H132").html("0" + roundCounter);
+            runningTallyAI = [];
+            buttonTiming(randomButton(), 1);
+        } else {
+            $("#playAgainButtons").hide();
+            $("#gameOver").hide();
+            $("#marketing").fadeIn(500);
         }
     });
 
