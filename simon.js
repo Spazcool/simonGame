@@ -10,7 +10,8 @@ $(document).ready(function() {
         col = 0,
         objInterval = 0,
         buttonChoice = ["top", "right", "bottom", "left"],
-        buttonColor = ["red", "green", "blue", "yellow"],
+        // #FF4040 #78AB46 #50A6C2 #FBEC5D
+        buttonColor = ["#FF4040", "#78AB46", "#50A6C2", "#FBEC5D"],
         gameUI = {
             top: [48, 58, 59, 69, 79, 80],
             bottom: [184, 185, 195, 205, 206, 216],
@@ -149,6 +150,17 @@ $(document).ready(function() {
     function buttonTiming(stuff, speed) {
         if (speed % 5 === 0) {
             time = time / 1.4;
+            $("body").animate({
+                    backgroundColor: "#162252"
+                },
+                200
+            );
+
+            $("body").animate({
+                    backgroundColor: "black"
+                },
+                800
+            );
         }
         clearInterval(objInterval);
         objInterval = setInterval(function() {
@@ -285,18 +297,19 @@ $(document).ready(function() {
                     gameMode = "STRICT";
                 }
             }
-            $("#H203").css({
-                'text-align': 'center',
-                'font-size': '1vw',
-                'padding-top': '1.1vw'
-            });
+            // $("#H203").css({
+            //     'text-align': 'center',
+            //     'font-size': '1vw',
+            //     'padding-top': '1.1vw'
+            // });
             $("#moder").css({
                 'text-align': 'center',
                 'font-size': '1vw',
                 'padding-top': '1.1vw'
             });
-            $("#H203").html(gameMode);
+            // $("#H203").html(gameMode);
             $("#moder").html(gameMode);
+
             console.log(gameMode);
         } else if (catsup === "H132") {
             purr(extraSound);
