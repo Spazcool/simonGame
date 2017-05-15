@@ -1,16 +1,15 @@
 //TODO
-//THE MENU BUTTONS SEEEM A BIT WEAK TO ME
-
-//NEED A BUTTON / POP UP FOR REPLAY
 // a running function for the header height, checks on resize of the screen?
+//AUDIO STILL BUGGING OUT IF DOG = ___
+//PAUSE THE GAME TILL HOVER OVER casMsg
+
+
 $(document).ready(function() {
-    $(".hex-img").hide();
     var aCounter = 0,
         bob = 11,
         col = 0,
         objInterval = 0,
         buttonChoice = ["top", "right", "bottom", "left"],
-        // #FF4040 #78AB46 #50A6C2 #FBEC5D
         buttonColor = ["#FF4040", "#78AB46", "#50A6C2", "#FBEC5D"],
         gameUI = {
             top: [48, 58, 59, 69, 79, 80],
@@ -22,6 +21,7 @@ $(document).ready(function() {
         runningTallyUSER = [],
         roundCounter = 1,
         gameMode = "STRICT",
+        //TODO if dog < 4 push the newAudio in and play else
         topSound = [new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16275_1460570774.mp3"),
             new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16275_1460570774.mp3"),
             new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16275_1460570774.mp3"),
@@ -56,6 +56,7 @@ $(document).ready(function() {
         time = 1000,
         hexContainer = $("#hexagonContainer").css("height");
 
+    $(".hex-img").hide();
     $("#leftPanel").height(hexContainer);
     $("#rightPanel").height(hexContainer);
     $(".banner").height(hexContainer);
@@ -182,6 +183,22 @@ $(document).ready(function() {
         }
     }
 
+    //TOGGLE THE NOTICE DIVS
+    function noticeFace(status) {
+        if (status === "strict" || status === "won") {
+            $("#casMsg, #marketing").hide();
+            $("#gameOver, #playAgainButtons").show();
+            $(".notice").fadeIn(500);
+        } else if (status === "casual") {
+            $("#marketing, #gameOver, #playAgainButtons").hide();
+            $("#casMsg").show();
+            $(".notice").fadeIn(500);
+        } else if (status === "marketing") {
+            $("#playAgainButtons, #gameOver, #casMsg").hide();
+            $("#marketing").fadeIn(500);
+        }
+    }
+
     //CHECK USER ANSWERS & END OF GAME
     function tallyCheck(user, ai) {
         if (user.length === ai.length) {
@@ -199,10 +216,21 @@ $(document).ready(function() {
                         });
                         $("#H132").html("0" + roundCounter);
                         $("#winOrLose").html("lost");
-                        $(".notice").fadeIn(500);
+                        noticeFace("strict");
                     } else {
-                        //TODO MIGHT NEED TO TWEAK THIS, CAN NEVER LOSE
+                        //TODO on hover remove message then start back up
+
+                        noticeFace("casual");
+                        $(".notice").hover(function() {
+                            console.log("oh shit");
+                            $(this).hide();
+
+
+                        });
                         console.log("thats alright buddy, keep playing");
+                        //BUG buttonTiming KEEPS GOING , NEED TO BORROW MY PAUSE CODE FROM POMODORO
+                        //wrap this in a conditional with the hover event
+                        // clearInterval(objInterval);
                         buttonTiming(runningTallyAI, 1);
                     }
                 }
@@ -213,7 +241,12 @@ $(document).ready(function() {
                 runningTallyUSER = [];
                 roundCounter = 1;
                 $("#winOrLose").html("won");
-                $(".notice").fadeIn(500);
+                noticeFace("won");
+                // $("#gameOver").show();
+                // $("#playAgainButtons").show();
+                // $("#marketing").hide();
+                // $("#casMsg").hide();
+                // $(".notice").fadeIn(500);
             } else if (runningTallyAI.length >= 1) {
                 roundCounter += 1;
                 $("#H132").css({
@@ -260,17 +293,13 @@ $(document).ready(function() {
             //START BUTTON
         } else if (catsup === "H208") {
             $(".notice").hide();
-
-            $("#playAgainButtons").show();
-            $("#gameOver").show();
-            $("#marketing").hide();
-
             if (roundCounter === 1) {
-                $("#H132").css({
-                    'text-align': 'center',
-                    'font-size': '2vw',
-                    'padding-top': '0.4vw'
-                });
+                //REMOVE 20/5 AFTER SEEING THAT IT DONT FUCK UP THE COUNTER 
+                // $("#H132").css({
+                //     'text-align': 'center',
+                //     'font-size': '2vw',
+                //     'padding-top': '0.4vw'
+                // });
                 $("#H132").html("0" + roundCounter);
                 runningTallyAI = [];
                 buttonTiming(randomButton(), 1);
@@ -297,17 +326,6 @@ $(document).ready(function() {
                     gameMode = "STRICT";
                 }
             }
-            // $("#H203").css({
-            //     'text-align': 'center',
-            //     'font-size': '1vw',
-            //     'padding-top': '1.1vw'
-            // });
-            $("#moder").css({
-                'text-align': 'center',
-                'font-size': '1vw',
-                'padding-top': '1.1vw'
-            });
-            // $("#H203").html(gameMode);
             $("#moder").html(gameMode);
 
             console.log(gameMode);
@@ -329,9 +347,7 @@ $(document).ready(function() {
             runningTallyAI = [];
             buttonTiming(randomButton(), 1);
         } else {
-            $("#playAgainButtons").hide();
-            $("#gameOver").hide();
-            $("#marketing").fadeIn(500);
+            noticeFace("marketing");
         }
     });
 

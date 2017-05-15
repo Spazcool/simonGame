@@ -32,6 +32,9 @@ a:link, a:visited {
     height: 3vw;
     bottom: 0;
     background-color: cyan;
+    text-align: center;
+    font-size: 1vw;
+    padding-top: 1.1vw;
 }
 
 #leftPanel {
@@ -136,6 +139,10 @@ a:link, a:visited {
 
 #marketing {
     margin-top: 3vw;
+}
+
+#casMsg {
+    margin-top: 5vw;
 }
 
 li.hex-row:nth-child(2n) .hexagon {
@@ -259,6 +266,7 @@ li.hex-row {
 #H132 {
     font-size: 2vw;
     padding-top: 0.4vw;
+    text-align: center;
 }
 
 .menuBut:hover {
