@@ -1,14 +1,18 @@
 //TODO
 // a running function for the header height, checks on resize of the screen?
-//AUDIO STILL BUGGING OUT IF DOG = ___
 //PAUSE THE GAME TILL HOVER OVER casMsg
-
+//ADD A HINT IN THE MENU IF PLAYING ON CASUAL
+//SIMILAR HINT IN THE NOTICE, ALSO ON CASUAL
+//HOVER EFFECTS FOR THE MARKEITING LINKS
+//counter face needs to not have a 0 in front of double digits
+//might have a bug in the "pause" in casual, where the game starts up and adds a couple more rounds
 
 $(document).ready(function() {
     var aCounter = 0,
         bob = 11,
         col = 0,
         objInterval = 0,
+        objIntervalA = 0,
         buttonChoice = ["top", "right", "bottom", "left"],
         buttonColor = ["#FF4040", "#78AB46", "#50A6C2", "#FBEC5D"],
         gameUI = {
@@ -21,6 +25,9 @@ $(document).ready(function() {
         runningTallyUSER = [],
         roundCounter = 1,
         gameMode = "STRICT",
+        dog = 0,
+        time = 1000,
+        hexContainer = $("#hexagonContainer").css("height"),
         //TODO if dog < 4 push the newAudio in and play else
         topSound = [new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16275_1460570774.mp3"),
             new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16275_1460570774.mp3"),
@@ -51,16 +58,13 @@ $(document).ready(function() {
             new Audio("http://www.gravomaster.com/alarm/sounds/chime-low.mp3"),
             new Audio("http://www.gravomaster.com/alarm/sounds/chime-low.mp3"),
             new Audio("http://www.gravomaster.com/alarm/sounds/chime-low.mp3")
-        ],
-        dog = 0,
-        time = 1000,
-        hexContainer = $("#hexagonContainer").css("height");
-
-    $(".hex-img").hide();
+        ];
+    //STARTING STYLE
     $("#leftPanel").height(hexContainer);
     $("#rightPanel").height(hexContainer);
     $(".banner").height(hexContainer);
     $(".banner").hide();
+    $(".hex-img").hide();
     $(".notice").hide();
     $("#marketing").hide();
 
@@ -81,14 +85,14 @@ $(document).ready(function() {
     }
 
     //CYCLE THROUGH THE CHANNELS ARRAYS AND PLAY, COMPLICATED BECAUSE HTML DOESNT LIKE TO PLAY MORE THAN ONE AT A TIME
-    //BUG STILL SKIPS ON OCCASION...
     function purr(sound) {
-        console.log(dog, sound);
         if (dog < 4) {
+            sound[dog].currentTime = 0;
             sound[dog].play();
             dog += 1;
         } else {
             dog = 0;
+            sound[dog].currentTime = 0;
             sound[dog].play();
         }
     }
@@ -112,7 +116,6 @@ $(document).ready(function() {
             default:
                 kitten = [position];
         }
-        console.log("length", kitten.length);
         for (var b = 0; b < kitten.length; b++) {
             $("#H" + kitten[b]).animate({
                     backgroundColor: "black"
@@ -149,6 +152,7 @@ $(document).ready(function() {
 
     //TIME AND PACE OF THE AI BUTTON ANIMATIONS
     function buttonTiming(stuff, speed) {
+        //INCREASE SPEED EVERY 5 LEVELS PLUS A LITTEL ANIMATION TO LET THE USER KNOW
         if (speed % 5 === 0) {
             time = time / 1.4;
             $("body").animate({
@@ -163,8 +167,8 @@ $(document).ready(function() {
                 800
             );
         }
-        clearInterval(objInterval);
-        objInterval = setInterval(function() {
+        clearInterval(objIntervalA);
+        objIntervalA = setInterval(function() {
             buttonCycle(stuff);
         }, time);
     }
@@ -175,7 +179,7 @@ $(document).ready(function() {
         if (tempTimes.length === 1) {
             glow(buttonChoice[tempTimes[0]], buttonColor[tempTimes[0]]);
             tempTimes.shift();
-            clearInterval(objInterval);
+            clearInterval(objIntervalA);
         } else if (tempTimes.length > 1) {
             glow(buttonChoice[tempTimes[0]], buttonColor[tempTimes[0]]);
             tempTimes.shift();
@@ -201,6 +205,7 @@ $(document).ready(function() {
 
     //CHECK USER ANSWERS & END OF GAME
     function tallyCheck(user, ai) {
+        console.log("AI: ", runningTallyAI, " || USER: ", runningTallyUSER);
         if (user.length === ai.length) {
             for (var l = 0; l < user.length; l++) {
                 if (user[l][0] !== ai[l][0]) {
@@ -219,19 +224,19 @@ $(document).ready(function() {
                         noticeFace("strict");
                     } else {
                         //TODO on hover remove message then start back up
-
-                        noticeFace("casual");
-                        $(".notice").hover(function() {
-                            console.log("oh shit");
-                            $(this).hide();
-
-
-                        });
-                        console.log("thats alright buddy, keep playing");
                         //BUG buttonTiming KEEPS GOING , NEED TO BORROW MY PAUSE CODE FROM POMODORO
                         //wrap this in a conditional with the hover event
-                        // clearInterval(objInterval);
-                        buttonTiming(runningTallyAI, 1);
+                        // clearInterval(objIntervalA);
+                        // buttonTiming(runningTallyAI, 1);
+                        // $(".notice").hover(function() {
+                        //     console.log("oh shit");
+                        //     $(this).hide();
+                        // });
+                        noticeFace("casual");
+                        setTimeout(function() {
+                            $(".notice").hide();
+                            buttonTiming(randomButton(), roundCounter);
+                        }, 2000);
                     }
                 }
             }
@@ -242,11 +247,7 @@ $(document).ready(function() {
                 roundCounter = 1;
                 $("#winOrLose").html("won");
                 noticeFace("won");
-                // $("#gameOver").show();
-                // $("#playAgainButtons").show();
-                // $("#marketing").hide();
-                // $("#casMsg").hide();
-                // $(".notice").fadeIn(500);
+                // TODO what is going on here?
             } else if (runningTallyAI.length >= 1) {
                 roundCounter += 1;
                 $("#H132").css({
@@ -290,11 +291,11 @@ $(document).ready(function() {
             runningTallyUSER.push([3]);
             glow(buttonChoice[3], buttonColor[3]);
             tallyCheck(runningTallyUSER, runningTallyAI);
-            //START BUTTON
+            //START
         } else if (catsup === "H208") {
             $(".notice").hide();
             if (roundCounter === 1) {
-                //REMOVE 20/5 AFTER SEEING THAT IT DONT FUCK UP THE COUNTER 
+                //REMOVE 20/5 AFTER SEEING THAT IT DONT FUCK UP THE COUNTER
                 // $("#H132").css({
                 //     'text-align': 'center',
                 //     'font-size': '2vw',
@@ -304,14 +305,8 @@ $(document).ready(function() {
                 runningTallyAI = [];
                 buttonTiming(randomButton(), 1);
             }
-
-            //TODO GET THROUGH THESE BUTTONS FOR FINCTION AND ANIMATION
-            //SPAZCOOL.COM BUTTON
-        } else if (catsup === "H56") {
-            console.log("home");
-            //MENU WITH INFO ON HOW TO PLAY ETC
+            //MENU
         } else if (catsup === "H61") {
-            console.log("menu");
             purr(extraSound);
             buttonFlourish();
             $(".banner").toggle("slide", {
@@ -322,18 +317,21 @@ $(document).ready(function() {
             if (roundCounter === 1) {
                 if (gameMode === "STRICT") {
                     gameMode = "CASUAL";
+                    $("#H203").css({
+                        "background-color": "#EE82EE"
+                    });
                 } else {
                     gameMode = "STRICT";
+                    $("#H203").css({
+                        "background-color": "white"
+                    });
                 }
             }
             $("#moder").html(gameMode);
-
-            console.log(gameMode);
         } else if (catsup === "H132") {
             purr(extraSound);
         } else {
             var cutID = catsup.substring(1, 4);
-            console.log(cutID);
             glow(cutID, "#200000");
         }
     });
@@ -341,7 +339,6 @@ $(document).ready(function() {
     //GAME OVER BUTTONS
     $(".again").click(function() {
         if ((this.id) === "yes") {
-            console.log("you done hit things");
             $(".notice").hide();
             $("#H132").html("0" + roundCounter);
             runningTallyAI = [];
@@ -355,14 +352,13 @@ $(document).ready(function() {
         $("#tester").html(this.id);
     });
 
-    //OPENING ANIMATION
+    //OPENING ANIMATION & ON MENU PUSH
     function buttonFlourish() {
         for (var i = 0; i < buttonColor.length; i++) {
             var str = [i];
             for (var j = 1; j < 4; j++) {
                 str.push((i + j) % buttonColor.length);
             }
-            // console.log(str);
             for (var e = 0; e < gameUI.top.length; e++) {
                 $("#H" + gameUI.top[e]).animate({
                         backgroundColor: buttonColor[str[1]]
@@ -396,7 +392,6 @@ $(document).ready(function() {
     }
 
     function openingShow(him) {
-        // console.log("him: ", him, " || bob: ", bob, " || col: ", col);
         //STOP OPERATING AFTER GOING THROUGH ALL HEXES
         if (him < 1) {
             clearInterval(objInterval);

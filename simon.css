@@ -18,23 +18,38 @@ a:link, a:visited {
 }
 
 #tester {
+    padding-top: 1.1vw;
     position: absolute;
-    width: 100%;
-    height: 5%;
-    top: 0;
+    font-size: 1vw;
+    width: 25%;
+    height: 3vw;
+    bottom: 0;
+    right: 0;
     color: white;
-    background-color: blue;
+    background-color: #660000;
+    text-align: center;
 }
 
-#moder {
+#moderHolder {
     position: absolute;
     width: 100%;
     height: 3vw;
     bottom: 0;
-    background-color: cyan;
+    background-color: #EE7621;
     text-align: center;
     font-size: 1vw;
     padding-top: 1.1vw;
+}
+
+#moder {
+    /*position: absolute;
+    width: 100%;
+    height: 3vw;
+    bottom: 0;
+    background-color: cyan;
+    text-align: center;*/
+    /*font-size: 1vw;
+    padding-top: 1.1vw;*/
 }
 
 #leftPanel {
@@ -43,6 +58,7 @@ a:link, a:visited {
     position: absolute;
     left: 0;
     z-index: 2;
+    border-right: 3px solid #454545;
 }
 
 #rightPanel {
@@ -51,6 +67,7 @@ a:link, a:visited {
     position: absolute;
     right: 0;
     z-index: 2;
+    border-left: 3px solid #454545;
     /*margin-right: -0.4em;*/
 }
 
