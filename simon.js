@@ -1,11 +1,7 @@
 //TODO
 // a running function for the header height, checks on resize of the screen?
-//PAUSE THE GAME TILL HOVER OVER casMsg
 //ADD A HINT IN THE MENU IF PLAYING ON CASUAL
 //SIMILAR HINT IN THE NOTICE, ALSO ON CASUAL
-//HOVER EFFECTS FOR THE MARKEITING LINKS
-//counter face needs to not have a 0 in front of double digits
-//might have a bug in the "pause" in casual, where the game starts up and adds a couple more rounds
 
 $(document).ready(function() {
     var aCounter = 0,
@@ -27,38 +23,13 @@ $(document).ready(function() {
         gameMode = "STRICT",
         dog = 0,
         time = 1000,
+        noticeThere = false,
         hexContainer = $("#hexagonContainer").css("height"),
-        //TODO if dog < 4 push the newAudio in and play else
-        topSound = [new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16275_1460570774.mp3"),
-            new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16275_1460570774.mp3"),
-            new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16275_1460570774.mp3"),
-            new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16275_1460570774.mp3"),
-            new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16275_1460570774.mp3")
-        ],
-        rightSound = [new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16296_1460570779.mp3"),
-            new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16296_1460570779.mp3"),
-            new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16296_1460570779.mp3"),
-            new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16296_1460570779.mp3"),
-            new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16296_1460570779.mp3")
-        ],
-        bottomSound = [new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16297_1460570779.mp3"),
-            new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16297_1460570779.mp3"),
-            new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16297_1460570779.mp3"),
-            new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16297_1460570779.mp3"),
-            new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16297_1460570779.mp3")
-        ],
-        leftSound = [new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16298_1460570779.mp3"),
-            new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16298_1460570779.mp3"),
-            new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16298_1460570779.mp3"),
-            new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16298_1460570779.mp3"),
-            new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16298_1460570779.mp3")
-        ],
-        extraSound = [new Audio("http://www.gravomaster.com/alarm/sounds/chime-low.mp3"),
-            new Audio("http://www.gravomaster.com/alarm/sounds/chime-low.mp3"),
-            new Audio("http://www.gravomaster.com/alarm/sounds/chime-low.mp3"),
-            new Audio("http://www.gravomaster.com/alarm/sounds/chime-low.mp3"),
-            new Audio("http://www.gravomaster.com/alarm/sounds/chime-low.mp3")
-        ];
+        topSound = [new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16275_1460570774.mp3")],
+        rightSound = [new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16296_1460570779.mp3")],
+        bottomSound = [new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16297_1460570779.mp3")],
+        leftSound = [new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16298_1460570779.mp3")],
+        extraSound = [new Audio("http://www.gravomaster.com/alarm/sounds/chime-low.mp3")];
     //STARTING STYLE
     $("#leftPanel").height(hexContainer);
     $("#rightPanel").height(hexContainer);
@@ -68,13 +39,19 @@ $(document).ready(function() {
     $(".notice").hide();
     $("#marketing").hide();
 
-    //FILLS THE AUDIO ARRAYS WITH 5 "CHANNELS" TO PLAY FROM, BUT DOESNT WORK...
+    //FILLS THE AUDIO ARRAYS WITH 5 "CHANNELS" TO PLAY FROM
     function fillArray(arr) {
         for (var i = 0; i < 4; i++) {
             arr.push(arr[0]);
         }
         return arr;
     }
+
+    fillArray(topSound);
+    fillArray(rightSound);
+    fillArray(bottomSound);
+    fillArray(leftSound);
+    fillArray(extraSound);
 
     //CHECK IF USER HAS WON
     function gameOverCheck() {
@@ -143,10 +120,27 @@ $(document).ready(function() {
         }
     }
 
+    //CREATE A RAINBOW BAR HINT FOR CASUAL PLAYERS
+    //TODO
+    function createHint() {
+        // buttonColor = ["#FF4040", "#78AB46", "#50A6C2", "#FBEC5D"],
+        //CLEAR THE HTML IN HINT
+        $("#hint").html("");
+        //LOOP THROUGH runningTallyAI
+        for (var q = 0; q < runningTallyAI.length; q++) {
+            $("#hint").html("<div class='hints' style:'background-color:black'></div>");
+            // buttonColor[runningTallyAI[q][0]]
+
+            console.log(runningTallyAI[q][0]);
+        }
+        //CREATING A NEW COLORED BOX AND APPEND TO HINT
+    }
+
     //RANDOMLY SELECT A BUTTON AND NUNBER OF GLOWS
     function randomButton() {
         var randoBut = Math.floor(Math.random() * 4);
         runningTallyAI.push([randoBut]);
+        createHint();
         return runningTallyAI;
     }
 
@@ -197,6 +191,7 @@ $(document).ready(function() {
             $("#marketing, #gameOver, #playAgainButtons").hide();
             $("#casMsg").show();
             $(".notice").fadeIn(500);
+            noticeThere = true;
         } else if (status === "marketing") {
             $("#playAgainButtons, #gameOver, #casMsg").hide();
             $("#marketing").fadeIn(500);
@@ -205,38 +200,22 @@ $(document).ready(function() {
 
     //CHECK USER ANSWERS & END OF GAME
     function tallyCheck(user, ai) {
-        console.log("AI: ", runningTallyAI, " || USER: ", runningTallyUSER);
+        //USER INPUT MATCHES NUMBER OF AI INPUT
         if (user.length === ai.length) {
             for (var l = 0; l < user.length; l++) {
+                //IF THERE ISNT A MATCH IN THE INPUTS, GAME OVER
                 if (user[l][0] !== ai[l][0]) {
                     if (gameMode === "STRICT") {
                         console.log("you done hit the wrong button || game over man!");
                         runningTallyAI = [];
                         runningTallyUSER = [];
                         roundCounter = 1;
-                        $("#H132").css({
-                            'text-align': 'center',
-                            'font-size': '2vw',
-                            'padding-top': '0.4vw'
-                        });
                         $("#H132").html("0" + roundCounter);
                         $("#winOrLose").html("lost");
                         noticeFace("strict");
+                        //CASUAL MESS UP, LOGIC BELOW
                     } else {
-                        //TODO on hover remove message then start back up
-                        //BUG buttonTiming KEEPS GOING , NEED TO BORROW MY PAUSE CODE FROM POMODORO
-                        //wrap this in a conditional with the hover event
-                        // clearInterval(objIntervalA);
-                        // buttonTiming(runningTallyAI, 1);
-                        // $(".notice").hover(function() {
-                        //     console.log("oh shit");
-                        //     $(this).hide();
-                        // });
                         noticeFace("casual");
-                        setTimeout(function() {
-                            $(".notice").hide();
-                            buttonTiming(randomButton(), roundCounter);
-                        }, 2000);
                     }
                 }
             }
@@ -247,24 +226,37 @@ $(document).ready(function() {
                 roundCounter = 1;
                 $("#winOrLose").html("won");
                 noticeFace("won");
-                // TODO what is going on here?
+                //IF EVERYTHING MATCHES, NEXT ROUND
             } else if (runningTallyAI.length >= 1) {
-                roundCounter += 1;
-                $("#H132").css({
-                    'text-align': 'center',
-                    'font-size': '2vw',
-                    'padding-top': '0.4vw'
-                });
-                $("#H132").html("0" + roundCounter);
                 runningTallyUSER = [];
-                setTimeout(function() {
-                    buttonTiming(randomButton(), roundCounter);
-                }, 2000);
+                //IF NOTICE DIV IS SHOWING PAUSE THIS UNTIL IT IS HOVERED ON, AND PLAY THE SAME ROUND AGAIN
+                if (noticeThere === true) {
+                    $(".notice").mouseenter(function() {
+                        $(this).hide();
+                        noticeThere = false;
+                        setTimeout(function() {
+                            // console.log("run this one");
+                            buttonTiming(runningTallyAI, roundCounter);
+                        }, 2000);
+                    });
+                    //MOVE ON TO A NEW ROUND
+                } else {
+                    roundCounter += 1;
+                    setTimeout(function() {
+                        // console.log("run this too");
+                        buttonTiming(randomButton(), roundCounter);
+                    }, 2000);
+                }
+                if (roundCounter < 10) {
+                    $("#H132").html("0" + roundCounter);
+                } else {
+                    $("#H132").html(roundCounter);
+                }
             }
-
             //DONT THINK THIS IS POSSIBLE REALLY
         } else if (user.length > ai.length) {
             console.log("you done hit too many buttons || game over man!");
+            noticeFace("strict");
             runningTallyAI = [];
             runningTallyUSER = [];
             roundCounter = 1;
@@ -295,12 +287,6 @@ $(document).ready(function() {
         } else if (catsup === "H208") {
             $(".notice").hide();
             if (roundCounter === 1) {
-                //REMOVE 20/5 AFTER SEEING THAT IT DONT FUCK UP THE COUNTER
-                // $("#H132").css({
-                //     'text-align': 'center',
-                //     'font-size': '2vw',
-                //     'padding-top': '0.4vw'
-                // });
                 $("#H132").html("0" + roundCounter);
                 runningTallyAI = [];
                 buttonTiming(randomButton(), 1);
