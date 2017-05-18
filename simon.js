@@ -25,6 +25,7 @@ $(document).ready(function() {
         time = 1000,
         noticeThere = false,
         hexContainer = $("#hexagonContainer").css("height"),
+        hintContainer = $("#hinterHolder").css("width"),
         topSound = [new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16275_1460570774.mp3")],
         rightSound = [new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16296_1460570779.mp3")],
         bottomSound = [new Audio("http://www.freesfx.co.uk/rx2/mp3s/4/16297_1460570779.mp3")],
@@ -121,19 +122,18 @@ $(document).ready(function() {
     }
 
     //CREATE A RAINBOW BAR HINT FOR CASUAL PLAYERS
+    //proportional to the width of the container
     //TODO
-    function createHint() {
-        // buttonColor = ["#FF4040", "#78AB46", "#50A6C2", "#FBEC5D"],
-        //CLEAR THE HTML IN HINT
-        $("#hint").html("");
-        //LOOP THROUGH runningTallyAI
-        for (var q = 0; q < runningTallyAI.length; q++) {
-            $("#hint").html("<div class='hints' style:'background-color:black'></div>");
-            // buttonColor[runningTallyAI[q][0]]
 
-            console.log(runningTallyAI[q][0]);
+    function createHint() {
+        var hintsWidth = (Number(hintContainer.substring(0, hintContainer.length - 2)) / runningTallyAI.length) + "px";
+        console.log(hintsWidth);
+        $(".hints").width(hintsWidth);
+        $("#hinterHolder").html("");
+        for (var q = 0; q < runningTallyAI.length; q++) {
+            $("#hinterHolder").prepend("<div class='hints' id='hint" + runningTallyAI[q][0] + "'></div>");
+            console.log("buttons played- index: ", q, " || button: ", runningTallyAI[q][0]);
         }
-        //CREATING A NEW COLORED BOX AND APPEND TO HINT
     }
 
     //RANDOMLY SELECT A BUTTON AND NUNBER OF GLOWS

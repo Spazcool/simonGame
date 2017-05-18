@@ -2,8 +2,8 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: black;
     color: black;
+    background-color: black;
     font-weight: bold;
 }
 
@@ -18,122 +18,143 @@ a:link, a:visited {
 }
 
 #tester {
-    padding-top: 1.1vw;
     position: absolute;
-    font-size: 1vw;
+    right: 0;
+    bottom: 0;
     width: 25%;
     height: 3vw;
-    bottom: 0;
-    right: 0;
+    padding-top: 1.1vw;
+    text-align: center;
     color: white;
     background-color: #660000;
-    text-align: center;
+    font-size: 1vw;
 }
 
 #moderHolder {
     position: absolute;
+    bottom: 0;
     width: 100%;
     height: 3vw;
-    bottom: 0;
-    background-color: #EE7621;
-    text-align: center;
-    font-size: 1vw;
     padding-top: 1.1vw;
+    text-align: center;
+    background-color: #EE7621;
+    font-size: 1vw;
 }
 
 #hinterHolder {
     position: absolute;
-    width: 100%;
+    width: 50%;
     height: 3vw;
     margin-top: 21vw;
+    margin-left: 7vw;
+    /*padding-top: 1.1vw;*/
+    text-align: center;
     /*bottom: 100;*/
     background-color: cyan;
-    text-align: center;
     font-size: 1vw;
-    padding-top: 1.1vw;
 }
 
 .hints {
-    width: 3vw;
     float: right;
+    width: 10px;
+    height: inherit;
+    text-align: center;
+    border: 1px solid #000;
+    /*background-color: ;*/
+}
+
+#hint0 {
+    background-color: red;
+}
+
+#hint1 {
+    background-color: green;
+}
+
+#hint2 {
+    background-color: blue;
+}
+
+#hint3 {
+    background-color: yellow;
 }
 
 #leftPanel {
-    background-color: #5E2D79;
-    width: 5vw;
     position: absolute;
-    left: 0;
     z-index: 2;
+    left: 0;
+    width: 5vw;
     border-right: 3px solid #454545;
+    background-color: #5E2D79;
 }
 
 #rightPanel {
-    background-color: #5E2D79;
-    width: 5vw;
     position: absolute;
-    right: 0;
     z-index: 2;
+    right: 0;
+    width: 5vw;
     border-left: 3px solid #454545;
+    background-color: #5E2D79;
     /*margin-right: -0.4em;*/
 }
 
 #title {
-    /*border: 1px dotted white;*/
-    font-family: "Lobster", cursive;
+    position: absolute;
+    top: 45%;
     width: 600%;
     margin-left: -12.5vw;
-    color: white;
-    position: absolute;
-    text-align: center;
-    font-size: 3.7vw;
-    top: 45%;
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
     transform: rotate(-90deg);
+    text-align: center;
+    color: white;
+    /*border: 1px dotted white;*/
+    font-family: "Lobster", cursive;
+    font-size: 3.7vw;
 }
 
 #footsy {
+    position: absolute;
+    top: 45%;
     /*border: 1px dotted white;*/
     width: 600%;
     margin-left: -12.5vw;
-    color: white;
-    position: absolute;
-    text-align: center;
-    font-size: 1.7vw;
-    top: 45%;
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
     transform: rotate(-90deg);
+    text-align: center;
+    color: white;
+    font-size: 1.7vw;
 }
 
 .banner {
-    background-color: grey;
-    width: 20vw;
     position: absolute;
-    right: left;
     z-index: 1;
+    right: left;
+    width: 20vw;
+    background-color: grey;
 }
 
 #instructions {
     margin-top: 3vw;
-    padding-left: 6vw;
     padding-right: 1vw;
+    padding-left: 6vw;
 }
 
 .notice {
-    border-radius: 5%;
     position: absolute;
-    font-weight: bold;
+    z-index: 3;
     top: 20vw;
     left: 35vw;
-    z-index: 3;
-    height: 15vw;
     width: 30vw;
+    height: 15vw;
+    border-radius: 5%;
     background-color: #5E2D79;
+    font-weight: bold;
 }
 
 #gameOver {
@@ -159,11 +180,11 @@ li.hex-row:nth-child(2n) .hexagon {
 
 #hexagonContainer {
     position: relative;
+    overflow: hidden;
+    height: inherit;
     margin: 0;
     padding: 0;
     list-style: none;
-    overflow: hidden;
-    height: inherit;
     /*height: 100vh;*/
     /*border: 10px solid red;*/
     /*border: 4px dotted white;*/
@@ -172,16 +193,16 @@ li.hex-row:nth-child(2n) .hexagon {
 }
 
 .hexagon {
-    width: 9.3vw;
-    background: transparent;
-    height: 3.54vw;
-    display: inline-block;
-    transform: rotate(120deg);
-    overflow: hidden;
-    visibility: hidden;
-    margin-bottom: -1.75vw;
     position: relative;
+    display: inline-block;
+    visibility: hidden;
+    overflow: hidden;
+    width: 9.3vw;
+    height: 3.54vw;
     margin-right: -0.5vw;
+    margin-bottom: -1.75vw;
+    transform: rotate(120deg);
+    background: transparent;
     /*  	margin-right: -3px; */
     /* 	 margin-left: -0.5vw; */
 }
@@ -192,34 +213,34 @@ li.hex-row {
 }
 
 .hexagon .hex-inner {
+    position: relative;
+    overflow: hidden;
     width: 100%;
     height: 100%;
     /*background: rebeccapurple;*/
     transform: rotate(-60deg);
-    overflow: hidden;
-    position: relative;
     /* background-color: black; */
 }
 
 .hexagon .hex-img {
+    visibility: visible;
     width: 100%;
     height: 100%;
     transform: rotate(-60deg);
-    visibility: visible;
-    box-shadow: 1px 0 0 0;
     /*  	background-color: #310073; */
     background-color: #100000;
+    box-shadow: 1px 0 0 0;
 }
 
 .hexagon .hex-img:after {
     position: absolute;
-    width: 100%;
-    content: '';
     z-index: 1;
+    width: 100%;
     height: 100%;
+    content: '';
+    background-repeat: no-repeat;
     /*   background-image: url(http://www.w3schools.com/cssref/img_flwr.gif); */
     background-position: center center;
-    background-repeat: no-repeat;
 }
 
 .hex-img.hide {
@@ -266,15 +287,15 @@ li.hex-row {
 }
 
 .textButs {
+    padding-top: 1.1vw;
     text-align: center;
     font-size: 1vw;
-    padding-top: 1.1vw;
 }
 
 #H132 {
-    font-size: 2vw;
     padding-top: 0.4vw;
     text-align: center;
+    font-size: 2vw;
 }
 
 .menuBut:hover {
