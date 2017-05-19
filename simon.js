@@ -2,6 +2,7 @@
 // a running function for the header height, checks on resize of the screen?
 //ADD A HINT IN THE MENU IF PLAYING ON CASUAL
 //SIMILAR HINT IN THE NOTICE, ALSO ON CASUAL
+//Just checking on may ability to push and pull from gitHub
 
 $(document).ready(function() {
     var aCounter = 0,
