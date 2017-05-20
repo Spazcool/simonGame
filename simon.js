@@ -1,9 +1,3 @@
-//TODO
-// a running function for the header height, checks on resize of the screen?
-//ADD A HINT IN THE MENU IF PLAYING ON CASUAL
-//SIMILAR HINT IN THE NOTICE, ALSO ON CASUAL
-//Just checking on may ability to push and pull from gitHub
-
 $(document).ready(function() {
     var aCounter = 0,
         bob = 11,
@@ -57,7 +51,7 @@ $(document).ready(function() {
 
     //CHECK IF USER HAS WON
     function gameOverCheck() {
-        if (roundCounter > 20) {
+        if (roundCounter >= 20) {
             return true;
         }
         return false;
@@ -122,18 +116,12 @@ $(document).ready(function() {
         }
     }
 
-    //CREATE A RAINBOW BAR HINT FOR CASUAL PLAYERS
-    //proportional to the width of the container
-    //TODO
-
     function createHint() {
-        var hintsWidth = (Number(hintContainer.substring(0, hintContainer.length - 2)) / runningTallyAI.length) + "px";
-        console.log(hintsWidth);
-        $(".hints").width(hintsWidth);
+        var hintsWidth = (Number(hintContainer.substring(0, hintContainer.length - 2) / 16) / runningTallyAI.length) + "rem";
         $("#hinterHolder").html("");
         for (var q = 0; q < runningTallyAI.length; q++) {
             $("#hinterHolder").prepend("<div class='hints' id='hint" + runningTallyAI[q][0] + "'></div>");
-            console.log("buttons played- index: ", q, " || button: ", runningTallyAI[q][0]);
+            $(".hints").width(hintsWidth);
         }
     }
 
@@ -141,7 +129,9 @@ $(document).ready(function() {
     function randomButton() {
         var randoBut = Math.floor(Math.random() * 4);
         runningTallyAI.push([randoBut]);
-        createHint();
+        if (gameMode !== "STRICT") {
+            createHint();
+        }
         return runningTallyAI;
     }
 
@@ -257,11 +247,12 @@ $(document).ready(function() {
             //DONT THINK THIS IS POSSIBLE REALLY
         } else if (user.length > ai.length) {
             console.log("you done hit too many buttons || game over man!");
-            noticeFace("strict");
             runningTallyAI = [];
             runningTallyUSER = [];
             roundCounter = 1;
-            $("#H132").html(roundCounter);
+            $("#H132").html("0" + roundCounter);
+            $("#winOrLose").html("lost");
+            noticeFace("strict");
         }
     }
 

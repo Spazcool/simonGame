@@ -14,7 +14,48 @@ a:link, a:visited {
 
 #container {
     height: 100vh;
-    /*border: 1px solid white;*/
+}
+
+#leftPanel {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    width: 5vw;
+    border-right: 3px solid #454545;
+    background-color: #5E2D79;
+}
+
+#title {
+    position: absolute;
+    top: 45%;
+    width: 600%;
+    margin-left: -12.5vw;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    text-align: center;
+    color: white;
+    font-family: "Lobster", cursive;
+    font-size: 3.7vw;
+}
+
+
+/*SLIDING MENU*/
+
+.banner {
+    position: absolute;
+    z-index: 1;
+    right: left;
+    width: 20vw;
+    background-color: grey;
+}
+
+#instructions {
+    margin-top: 3vw;
+    padding-right: 1vw;
+    padding-left: 6vw;
 }
 
 #tester {
@@ -44,23 +85,16 @@ a:link, a:visited {
 #hinterHolder {
     position: absolute;
     width: 50%;
-    height: 3vw;
-    margin-top: 21vw;
-    margin-left: 7vw;
-    /*padding-top: 1.1vw;*/
-    text-align: center;
-    /*bottom: 100;*/
-    background-color: cyan;
-    font-size: 1vw;
+    height: 2vw;
+    margin-top: 19vw;
+    margin-left: 7.5vw;
+    border: 1px solid #000;
 }
 
 .hints {
     float: right;
-    width: 10px;
     height: inherit;
-    text-align: center;
-    border: 1px solid #000;
-    /*background-color: ;*/
+    border-left: 1px solid #000;
 }
 
 #hint0 {
@@ -79,15 +113,6 @@ a:link, a:visited {
     background-color: yellow;
 }
 
-#leftPanel {
-    position: absolute;
-    z-index: 2;
-    left: 0;
-    width: 5vw;
-    border-right: 3px solid #454545;
-    background-color: #5E2D79;
-}
-
 #rightPanel {
     position: absolute;
     z-index: 2;
@@ -95,30 +120,11 @@ a:link, a:visited {
     width: 5vw;
     border-left: 3px solid #454545;
     background-color: #5E2D79;
-    /*margin-right: -0.4em;*/
-}
-
-#title {
-    position: absolute;
-    top: 45%;
-    width: 600%;
-    margin-left: -12.5vw;
-    -webkit-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
-    transform: rotate(-90deg);
-    text-align: center;
-    color: white;
-    /*border: 1px dotted white;*/
-    font-family: "Lobster", cursive;
-    font-size: 3.7vw;
 }
 
 #footsy {
     position: absolute;
     top: 45%;
-    /*border: 1px dotted white;*/
     width: 600%;
     margin-left: -12.5vw;
     -webkit-transform: rotate(-90deg);
@@ -131,19 +137,8 @@ a:link, a:visited {
     font-size: 1.7vw;
 }
 
-.banner {
-    position: absolute;
-    z-index: 1;
-    right: left;
-    width: 20vw;
-    background-color: grey;
-}
 
-#instructions {
-    margin-top: 3vw;
-    padding-right: 1vw;
-    padding-left: 6vw;
-}
+/*GAME OVER MENU*/
 
 .notice {
     position: absolute;
@@ -174,82 +169,8 @@ a:link, a:visited {
     margin-top: 5vw;
 }
 
-li.hex-row:nth-child(2n) .hexagon {
-    transform: translateX(50%) rotate(120deg);
-}
 
-#hexagonContainer {
-    position: relative;
-    overflow: hidden;
-    height: inherit;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    /*height: 100vh;*/
-    /*border: 10px solid red;*/
-    /*border: 4px dotted white;*/
-    /*  	transform: translateY(-30px); */
-    /*  	transform: translateX(-35px); */
-}
-
-.hexagon {
-    position: relative;
-    display: inline-block;
-    visibility: hidden;
-    overflow: hidden;
-    width: 9.3vw;
-    height: 3.54vw;
-    margin-right: -0.5vw;
-    margin-bottom: -1.75vw;
-    transform: rotate(120deg);
-    background: transparent;
-    /*  	margin-right: -3px; */
-    /* 	 margin-left: -0.5vw; */
-}
-
-li.hex-row {
-    white-space: nowrap;
-    filter: drop-shadow(0.2vw 0.2vw 0.1vw black);
-}
-
-.hexagon .hex-inner {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    /*background: rebeccapurple;*/
-    transform: rotate(-60deg);
-    /* background-color: black; */
-}
-
-.hexagon .hex-img {
-    visibility: visible;
-    width: 100%;
-    height: 100%;
-    transform: rotate(-60deg);
-    /*  	background-color: #310073; */
-    background-color: #100000;
-    box-shadow: 1px 0 0 0;
-}
-
-.hexagon .hex-img:after {
-    position: absolute;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    content: '';
-    background-repeat: no-repeat;
-    /*   background-image: url(http://www.w3schools.com/cssref/img_flwr.gif); */
-    background-position: center center;
-}
-
-.hex-img.hide {
-    visibility: hidden;
-}
-
-.hex-img:hover {
-    cursor: pointer;
-}
+/*SPECIAL HEXES / BUTTONS */
 
 
 /*TOP*/
@@ -292,6 +213,9 @@ li.hex-row {
     font-size: 1vw;
 }
 
+
+/*COUNTER*/
+
 #H132 {
     padding-top: 0.4vw;
     text-align: center;
@@ -301,4 +225,73 @@ li.hex-row {
 .menuBut:hover {
     box-shadow: 1px 1px 20px white;
     filter: brightness(200%);
+}
+
+
+/*FOR ALL HEXES*/
+
+li.hex-row:nth-child(2n) .hexagon {
+    transform: translateX(50%) rotate(120deg);
+}
+
+#hexagonContainer {
+    position: relative;
+    overflow: hidden;
+    height: inherit;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.hexagon {
+    position: relative;
+    display: inline-block;
+    visibility: hidden;
+    overflow: hidden;
+    width: 9.3vw;
+    height: 3.54vw;
+    margin-right: -0.5vw;
+    margin-bottom: -1.75vw;
+    transform: rotate(120deg);
+    background: transparent;
+}
+
+li.hex-row {
+    white-space: nowrap;
+    filter: drop-shadow(0.2vw 0.2vw 0.1vw black);
+}
+
+.hexagon .hex-inner {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-60deg);
+}
+
+.hexagon .hex-img {
+    visibility: visible;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-60deg);
+    background-color: #100000;
+    box-shadow: 1px 0 0 0;
+}
+
+.hexagon .hex-img:after {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.hex-img.hide {
+    visibility: hidden;
+}
+
+.hex-img:hover {
+    cursor: pointer;
 }
