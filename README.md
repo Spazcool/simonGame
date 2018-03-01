@@ -4,7 +4,7 @@ My first go at the game of Simon in JavaScript/jQuery, CSS & HTML as one of the 
 
 ## Getting Started
 
-Host locally after download. 
+Play on my [site](http://www.spazcool.com/simon/) or host locally after download.
 
 ### Prerequisites
 
