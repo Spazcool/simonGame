@@ -1,6 +1,10 @@
-# freeCodeCamp Simon (ver. 1)
+# Simon
 
 My first go at the game of Simon in JavaScript/jQuery, CSS & HTML as one of the final projects to freeCodeCamp's frontend development program. It's a simple game and I hope you enjoy.
+
+<p align="center">
+   <img width="80%" height="300vh" src="./desktop.gif">
+</p>
 
 ## Getting Started
 
